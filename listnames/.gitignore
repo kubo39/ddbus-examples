@@ -1,0 +1,15 @@
+listnames
+.dub
+docs.json
+__dummy.html
+docs/
+listnames.so
+listnames.dylib
+listnames.dll
+listnames.a
+listnames.lib
+listnames-test-*
+*.exe
+*.o
+*.obj
+*.lst

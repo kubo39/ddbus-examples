@@ -1,0 +1,11 @@
+{
+	"name": "listnames",
+	"authors": [
+		"kubo39"
+	],
+    "dependencies": {
+        "ddbus": "~>2.1.0"
+    },
+	"description": "A minimal D application.",
+	"license": "proprietary"
+}

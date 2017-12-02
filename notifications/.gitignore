@@ -1,0 +1,15 @@
+notifications
+.dub
+docs.json
+__dummy.html
+docs/
+notifications.so
+notifications.dylib
+notifications.dll
+notifications.a
+notifications.lib
+notifications-test-*
+*.exe
+*.o
+*.obj
+*.lst

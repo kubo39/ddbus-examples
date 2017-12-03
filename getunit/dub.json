@@ -1,0 +1,12 @@
+{
+	"name": "getunit",
+	"authors": [
+		"kubo39"
+	],
+	"dependencies": {
+		"ddbus": "~>2.2.0"
+	},
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2017, kubo39",
+	"license": "proprietary"
+}

@@ -1,0 +1,15 @@
+getunit
+.dub
+docs.json
+__dummy.html
+docs/
+getunit.so
+getunit.dylib
+getunit.dll
+getunit.a
+getunit.lib
+getunit-test-*
+*.exe
+*.o
+*.obj
+*.lst

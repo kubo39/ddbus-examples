@@ -2,17 +2,16 @@ import ddbus.thin;
 import std.stdio;
 import std.typecons : Tuple;
 
+auto getServerInformation(Connection conn)
+{
 alias ServerInformation = Tuple!(string, "name", string, "vendor",
                                  string, "version_", string, "specVersion");
-
-ServerInformation getServerInformation(Connection conn)
-{
     Message msg = Message("org.freedesktop.Notifications",
                           "/org/freedesktop/Notifications",
                           "org.freedesktop.Notifications",
                           "GetServerInformation");
     Message reply = conn.sendWithReplyBlocking(msg, 2000);
-    return reply.readTuple!(ServerInformation)();
+    return reply.readTuple!ServerInformation();
 }
 
 string[] getCapabilities(Connection conn)

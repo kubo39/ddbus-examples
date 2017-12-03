@@ -4,7 +4,7 @@ import std.typecons : Tuple;
 
 auto getServerInformation(Connection conn)
 {
-alias ServerInformation = Tuple!(string, "name", string, "vendor",
+    alias ServerInformation = Tuple!(string, "name", string, "vendor",
                                  string, "version_", string, "specVersion");
     Message msg = Message("org.freedesktop.Notifications",
                           "/org/freedesktop/Notifications",

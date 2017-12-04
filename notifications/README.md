@@ -1,4 +1,4 @@
-# Notificaiotns
+# Notifications
 
 - getServerInformation
 - getCapabilities

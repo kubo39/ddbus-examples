@@ -1,7 +1,7 @@
 {
 	"fileVersion": 1,
 	"versions": {
-		"ddbus": "2.1.0",
+		"ddbus": "2.2.0",
 		"dunit": "1.0.14"
 	}
 }

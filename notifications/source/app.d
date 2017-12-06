@@ -2,16 +2,19 @@ import ddbus.thin;
 import std.stdio;
 import std.typecons : Tuple;
 
-auto sendNotification(Connection conn)
+alias Notification = Tuple!(string, "appName", uint, "replacesID",
+                            string, "appIcon", string, "summary",
+                            string, "body_", string[], "actions",
+                            DBusAny, "hints", int, "expireTimeout");
+
+uint sendNotification(Connection conn, Notification n)
 {
     Message msg = Message("org.freedesktop.Notifications",
                           "/org/freedesktop/Notifications",
                           "org.freedesktop.Notifications",
                           "Notify");
-    msg.build("Test ddbus App", 0U, "mail-unread",
-        "Test", "This is a test of DBus binding for D.",
-        ["close", "Close", "open", "Open"],
-        DBusAny(["hoge": variant(DBusAny(0))]), 5000);
+    msg.build(n.appName, n.replacesID, n.appIcon, n.summary,
+              n.body_, n.actions, n.hints, n.expireTimeout);
     Message reply = conn.sendWithReplyBlocking(msg, 2000);
     return reply.read!uint();
 }
@@ -42,7 +45,16 @@ void main()
 {
     Connection conn = connectToBus();
 
-    conn.sendNotification();
+    Notification notify;
+    notify.appName = "Test ddbus App";
+    notify.replacesID = 0;
+    notify.appIcon = "mail-unread";
+    notify.summary = "Test";
+    notify.body_ = "This is a test of DBus binding for D.";
+    notify.actions = ["close", "Close", "open", "Open"];
+    notify.hints = DBusAny(["hoge": variant(DBusAny(0))]);
+    notify.expireTimeout = 5000;
+    conn.sendNotification(notify);
 
     conn.getCapabilities().writeln;
 

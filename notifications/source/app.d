@@ -13,8 +13,7 @@ uint sendNotification(Connection conn, Notification n)
                           "/org/freedesktop/Notifications",
                           "org.freedesktop.Notifications",
                           "Notify");
-    msg.build(n.appName, n.replacesID, n.appIcon, n.summary,
-              n.body_, n.actions, n.hints, n.expireTimeout);
+    msg.build(n.expand);
     Message reply = conn.sendWithReplyBlocking(msg, 2000);
     return reply.read!uint();
 }
